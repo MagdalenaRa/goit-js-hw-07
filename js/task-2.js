@@ -18,15 +18,17 @@
   const galleryList = document.querySelector(".gallery");
 
 
-images.forEach((imageData) => {
+const itemsImg = images.map((imageData) => {
   const listItem = document.createElement("li");
   const image = document.createElement("img");
   image.src = imageData.url;
   image.alt = imageData.alt;
   listItem.appendChild(image);
-  galleryList.appendChild(listItem);
+  return listItem;
 });
 
+
+galleryList.append(...itemsImg);
 
 galleryList.style.display = "flex";
 galleryList.style.listStyle = "none";
